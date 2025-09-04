@@ -12,13 +12,13 @@ A password-protected application form with real-time auto-save. No backend neede
 
 2. Open `index.html` in your browser
 
-3. Enter password: **`speedrun2025`**
+3. Enter the password.
 
 4. Fill out the form - it auto-saves as you type!
 
 ## Features
 
-- **Password Protected**: Access code is `speedrun2025`
+- **Password Protected**
 - **Auto-Save**: Every change is saved instantly to your browser
 - **Session Memory**: Stay logged in until you close the browser
 - **Word Counters**: See when you're approaching word limits
@@ -67,13 +67,6 @@ A password-protected application form with real-time auto-save. No backend neede
 
 3. Find exact URL in Settings → Pages (green checkmark when ready)
 
-## Changing the Password
-
-Edit line 2 in `script.js`:
-```javascript
-const PASSWORD = 'speedrun2025';  // Change this to whatever you want
-```
-
 ## Important Notes
 
 ### Data Storage
@@ -100,10 +93,6 @@ Fully responsive - works on phones and tablets
 
 ## Troubleshooting
 
-**Password not working?**
-- Make sure it's exactly: `speedrun2025`
-- Check caps lock
-- No spaces before/after
 
 **Form not saving?**
 - Check if browser blocks localStorage (rare)
@@ -144,7 +133,3 @@ Site auto-updates in 2-5 minutes after pushing changes.
 For issues with:
 - The form itself: Check the code or modify as needed
 - GitHub Pages: Check [GitHub Pages Documentation](https://docs.github.com/en/pages)
-
----
-
-**Remember:** The password is `speedrun2025` - change it in `script.js` if needed!
