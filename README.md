@@ -4,17 +4,33 @@ A password-protected application form with real-time auto-save. No backend neede
 
 ## Quick Start
 
-### Local Usage
-1. Download all 3 files to the same folder:
-   - `index.html`
-   - `styles.css`
-   - `script.js`
+### Folder Structure
+```
+speedrun-form/
+├── index.html          # Main HTML file
+├── config.js           # Configuration (no password here anymore!)
+├── src/
+│   └── app.tsx        # Main TypeScript application
+├── styles/
+│   └── main.css       # Styling
+├── api/
+│   └── auth.js        # Vercel authentication endpoint
+├── vercel.json        # Vercel configuration
+└── .env.example       # Environment variable template
+```
 
-2. Open `index.html` in your browser
+### Deployment Options
 
-3. Enter the password.
+#### Option 1: Deploy to Vercel (Recommended - Secure)
+See `VERCEL_SETUP.md` for complete instructions.
+- Password stored securely in environment variables
+- Backend authentication (actually secure!)
+- Free hosting with 100GB bandwidth
 
-4. Fill out the form - it auto-saves as you type!
+#### Option 2: Local Usage (Not Secure)
+1. Open `index.html` in your browser
+2. Password check happens via Vercel API
+3. For local testing, see `VERCEL_SETUP.md`
 
 ## Features
 
@@ -26,7 +42,16 @@ A password-protected application form with real-time auto-save. No backend neede
 - **Save Button**: Manual save option (though it auto-saves anyway)
 - **Logout**: Clear session and require password again
 
-## How to Host on GitHub Pages (FREE)
+## How to Host (Two Options)
+
+### Option 1: Vercel (RECOMMENDED - Secure)
+See `VERCEL_SETUP.md` for detailed instructions:
+1. Install Vercel CLI: `npm install -g vercel`
+2. Deploy: `vercel`
+3. Set password as environment variable (not in code!)
+4. Your site is live and secure!
+
+### Option 2: GitHub Pages (Not Recommended)
 
 ### Step 1: Create GitHub Account
 1. Go to [github.com](https://github.com)
@@ -41,10 +66,11 @@ A password-protected application form with real-time auto-save. No backend neede
 
 ### Step 3: Upload Your Files
 1. On the repository page, click **uploading an existing file**
-2. Drag and drop these 3 files:
+2. Drag and drop ALL files and folders:
    - `index.html`
-   - `styles.css` 
-   - `script.js`
+   - `config.js` (IMPORTANT - contains password!)
+   - `src/` folder with `app.tsx`
+   - `styles/` folder with `main.css`
    - `README.md` (this file)
 3. Write commit message: "Initial upload"
 4. Click **Commit changes**
@@ -67,7 +93,40 @@ A password-protected application form with real-time auto-save. No backend neede
 
 3. Find exact URL in Settings → Pages (green checkmark when ready)
 
+## Changing the Password
+
+**Password is now stored in Vercel Environment Variables (not in code!)**
+
+### Via Vercel Dashboard:
+1. Go to [vercel.com](https://vercel.com)
+2. Click your project
+3. Settings → Environment Variables
+4. Edit `APP_PASSWORD`
+5. Save (auto-redeploys)
+
+### Via Vercel CLI:
+```bash
+vercel env add APP_PASSWORD production
+# Enter new password when prompted
+```
+
+## File Structure Explained
+
+- **`config.js`** - Contains the PASSWORD and all settings (change password here!)
+- **`src/app.tsx`** - Main TypeScript application code  
+- **`styles/main.css`** - All styling
+- **`index.html`** - The main HTML page
+
 ## Important Notes
+
+### Why Vercel?
+
+**Now using proper backend authentication:**
+- Password stored as environment variable (not in code!)
+- Backend API handles authentication
+- Returns secure token to frontend
+- Actually secure - password never visible to users
+- Free tier: 100GB bandwidth/month
 
 ### Data Storage
 - Form data saves to YOUR browser's localStorage
@@ -133,3 +192,15 @@ Site auto-updates in 2-5 minutes after pushing changes.
 For issues with:
 - The form itself: Check the code or modify as needed
 - GitHub Pages: Check [GitHub Pages Documentation](https://docs.github.com/en/pages)
+
+## Security Note
+
+**With Vercel deployment:**
+- ✅ Password is secure (environment variable)
+- ✅ Not visible in browser dev tools
+- ✅ Backend authentication
+- ✅ Change password without touching code
+
+**Without Vercel (local only):**
+- ⚠️ Won't have password protection
+- ⚠️ Only use for development/testing
